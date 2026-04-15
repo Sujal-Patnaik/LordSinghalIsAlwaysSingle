@@ -1,65 +1,65 @@
 {
   "city": "Kolkata",
   "metric": "AQI",
-  "model_used": "LSTM",
+  "model_used": "Holt-Winters",
   "forecast_days": 365,
   "forecast_summary": {
-    "avg": 150.1,
-    "min": 115.4,
-    "max": 160.2
+    "avg": 122.9,
+    "min": 41.5,
+    "max": 241.9
   },
   "forecast_monthly": [
     {
       "month": "Mar 2026",
-      "predicted_avg": 116.8
+      "predicted_avg": 99.8
     },
     {
       "month": "Apr 2026",
-      "predicted_avg": 129.0
+      "predicted_avg": 87.7
     },
     {
       "month": "May 2026",
-      "predicted_avg": 136.5
+      "predicted_avg": 63.1
     },
     {
       "month": "Jun 2026",
-      "predicted_avg": 142.3
+      "predicted_avg": 67.1
     },
     {
       "month": "Jul 2026",
-      "predicted_avg": 146.8
+      "predicted_avg": 51.0
     },
     {
       "month": "Aug 2026",
-      "predicted_avg": 150.3
+      "predicted_avg": 72.4
     },
     {
       "month": "Sep 2026",
-      "predicted_avg": 152.9
+      "predicted_avg": 74.0
     },
     {
       "month": "Oct 2026",
-      "predicted_avg": 155.0
+      "predicted_avg": 113.5
     },
     {
       "month": "Nov 2026",
-      "predicted_avg": 156.6
+      "predicted_avg": 176.6
     },
     {
       "month": "Dec 2026",
-      "predicted_avg": 157.8
+      "predicted_avg": 194.2
     },
     {
       "month": "Jan 2027",
-      "predicted_avg": 158.8
+      "predicted_avg": 218.3
     },
     {
       "month": "Feb 2027",
-      "predicted_avg": 159.5
+      "predicted_avg": 192.9
     },
     {
       "month": "Mar 2027",
-      "predicted_avg": 160.0
+      "predicted_avg": 175.1
     }
   ]
 }

@@ -5,6 +5,7 @@ const years = [2022, 2023, 2024, 2025, 2026];
 
 export default function FilterBar({ locations = [], selectedLocation, onLocationChange, selectedMonth, onMonthChange, selectedYear, onYearChange, granularity, onGranularityChange }) {
   const maxMonth = selectedYear === 2026 ? 2 : 11;
+  const isYearly = granularity === 'yearly';
 
   return (
     <div className="filter-bar">
@@ -24,18 +25,20 @@ export default function FilterBar({ locations = [], selectedLocation, onLocation
         </select>
       </div>
 
-      <div className="filter-group">
-        <label className="filter-label">Month</label>
-        <select
-          className="filter-select"
-          value={selectedMonth}
-          onChange={e => onMonthChange(Number(e.target.value))}
-        >
-          {months.map((m, i) => (
-            i <= maxMonth && <option key={i} value={i}>{m}</option>
-          ))}
-        </select>
-      </div>
+      {!isYearly && (
+        <div className="filter-group">
+          <label className="filter-label">Month</label>
+          <select
+            className="filter-select"
+            value={selectedMonth}
+            onChange={e => onMonthChange(Number(e.target.value))}
+          >
+            {months.map((m, i) => (
+              i <= maxMonth && <option key={i} value={i}>{m}</option>
+            ))}
+          </select>
+        </div>
+      )}
 
       <div className="filter-group">
         <label className="filter-label">Year</label>
@@ -53,7 +56,7 @@ export default function FilterBar({ locations = [], selectedLocation, onLocation
       <div className="filter-group">
         <label className="filter-label">Granularity</label>
         <div className="granularity-toggle">
-          {['Daily', 'Weekly', 'Monthly'].map(g => (
+          {['Daily', 'Weekly', 'Monthly', 'Yearly'].map(g => (
             <button
               key={g}
               className={`granularity-btn ${granularity === g.toLowerCase() ? 'active' : ''}`}

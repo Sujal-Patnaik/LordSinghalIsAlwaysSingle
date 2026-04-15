@@ -7,6 +7,9 @@ import TrendChart from './components/TrendChart';
 import HistoricalChart from './components/HistoricalChart';
 import StatsOverview from './components/StatsOverview';
 import MLInsightsPanel from './components/MLInsightsPanel';
+import CityCompare from './components/CityCompare';
+import AqiDistribution from './components/AqiDistribution';
+import DeepDivePanel from './components/DeepDivePanel';
 import { fetchCities, fetchDailyAqi } from './services/api';
 import { aggregateWeekly, aggregateMonthly } from './utils/dataTransforms';
 import './App.css';
@@ -22,6 +25,7 @@ export default function App() {
   const [isDailyLoading, setIsDailyLoading] = useState(false);
   const [dataError, setDataError] = useState('');
   const [activeView, setActiveView] = useState('dashboard'); // 'dashboard' | 'ml-insights'
+
 
   useEffect(() => {
     let ignore = false;
@@ -45,6 +49,8 @@ export default function App() {
       ignore = true;
     };
   }, []);
+
+
 
   const location = useMemo(() => (
     locations.find(l => String(l.id) === String(selectedLocation))
@@ -161,7 +167,25 @@ export default function App() {
             {dataError && <p className="app-data-error">{dataError}</p>}
 
             {!selectedLocation ? (
-              <StatsOverview onSelectCity={handleSelectCity} />
+              <>
+                <StatsOverview
+                  onSelectCity={handleSelectCity}
+                  locations={locations}
+                  selectedYear={selectedYear}
+                  selectedMonth={selectedMonth}
+                  granularity={granularity}
+                />
+
+                {/* City Compare Mode */}
+                <CityCompare
+                  locations={locations}
+                  selectedMonth={selectedMonth}
+                  selectedYear={selectedYear}
+                />
+
+                {/* AQI Distribution Chart */}
+                <AqiDistribution locations={locations} selectedYear={selectedYear} selectedMonth={selectedMonth} granularity={granularity} />
+              </>
             ) : (
               <div className="city-detail fade-in">
                 <div className="city-detail-header">
@@ -189,6 +213,13 @@ export default function App() {
                   metric={activeMetric}
                   locationName={`${location?.name}, ${location?.state}`}
                 />
+
+                {/* Deep Dive Panel */}
+                <DeepDivePanel
+                  dailyData={dailyData}
+                  location={location}
+                  metric={activeMetric}
+                />
               </div>
             )}
           </>
@@ -198,14 +229,7 @@ export default function App() {
         )}
       </main>
 
-      <footer className="app-footer">
-        <div className="footer-inner">
-          <span>© 2026 AirPulse — Pollution Monitoring Dashboard</span>
-          <span className="footer-links">
-            Data is simulated for demonstration purposes
-          </span>
-        </div>
-      </footer>
+
     </div>
   );
 }

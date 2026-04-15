@@ -9,6 +9,9 @@
   border: 1px solid var(--border-color);
   margin-bottom: 24px;
   animation: fadeIn 0.5s ease;
+  position: sticky;
+  top: 64px;
+  z-index: 50;
 }
 
 .filter-group {
@@ -82,7 +85,7 @@
 }
 
 .granularity-btn.active {
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  background: var(--accent-blue);
   color: white;
   font-weight: 600;
   box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);

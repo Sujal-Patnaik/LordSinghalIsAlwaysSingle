@@ -1,65 +1,65 @@
 {
   "city": "Bangalore",
   "metric": "PM2.5",
-  "model_used": "LSTM",
+  "model_used": "Holt-Winters",
   "forecast_days": 365,
   "forecast_summary": {
-    "avg": 36.9,
-    "min": 36.1,
-    "max": 50.8
+    "avg": 82.4,
+    "min": 43.0,
+    "max": 145.5
   },
   "forecast_monthly": [
     {
       "month": "Mar 2026",
-      "predicted_avg": 48.7
+      "predicted_avg": 56.9
     },
     {
       "month": "Apr 2026",
-      "predicted_avg": 42.1
+      "predicted_avg": 55.5
     },
     {
       "month": "May 2026",
-      "predicted_avg": 38.0
+      "predicted_avg": 50.9
     },
     {
       "month": "Jun 2026",
-      "predicted_avg": 36.7
+      "predicted_avg": 47.7
     },
     {
       "month": "Jul 2026",
-      "predicted_avg": 36.3
+      "predicted_avg": 54.3
     },
     {
       "month": "Aug 2026",
-      "predicted_avg": 36.2
+      "predicted_avg": 66.1
     },
     {
       "month": "Sep 2026",
-      "predicted_avg": 36.1
+      "predicted_avg": 72.0
     },
     {
       "month": "Oct 2026",
-      "predicted_avg": 36.1
+      "predicted_avg": 81.7
     },
     {
       "month": "Nov 2026",
-      "predicted_avg": 36.1
+      "predicted_avg": 94.2
     },
     {
       "month": "Dec 2026",
-      "predicted_avg": 36.1
+      "predicted_avg": 103.2
     },
     {
       "month": "Jan 2027",
-      "predicted_avg": 36.1
+      "predicted_avg": 121.0
     },
     {
       "month": "Feb 2027",
-      "predicted_avg": 36.1
+      "predicted_avg": 120.3
     },
     {
       "month": "Mar 2027",
-      "predicted_avg": 36.1
+      "predicted_avg": 130.2
     }
   ]
 }

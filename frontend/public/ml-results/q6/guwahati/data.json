@@ -1,0 +1,65 @@
+{
+  "city": "Guwahati",
+  "metric": "AQI",
+  "model_used": "Holt-Winters",
+  "forecast_days": 365,
+  "forecast_summary": {
+    "avg": 118.0,
+    "min": 50.0,
+    "max": 206.0
+  },
+  "forecast_monthly": [
+    {
+      "month": "Mar 2026",
+      "predicted_avg": 153.4
+    },
+    {
+      "month": "Apr 2026",
+      "predicted_avg": 140.7
+    },
+    {
+      "month": "May 2026",
+      "predicted_avg": 94.8
+    },
+    {
+      "month": "Jun 2026",
+      "predicted_avg": 83.0
+    },
+    {
+      "month": "Jul 2026",
+      "predicted_avg": 63.6
+    },
+    {
+      "month": "Aug 2026",
+      "predicted_avg": 61.1
+    },
+    {
+      "month": "Sep 2026",
+      "predicted_avg": 77.0
+    },
+    {
+      "month": "Oct 2026",
+      "predicted_avg": 91.7
+    },
+    {
+      "month": "Nov 2026",
+      "predicted_avg": 134.2
+    },
+    {
+      "month": "Dec 2026",
+      "predicted_avg": 162.1
+    },
+    {
+      "month": "Jan 2027",
+      "predicted_avg": 186.0
+    },
+    {
+      "month": "Feb 2027",
+      "predicted_avg": 167.9
+    },
+    {
+      "month": "Mar 2027",
+      "predicted_avg": 158.0
+    }
+  ]
+}

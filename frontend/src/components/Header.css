@@ -32,7 +32,7 @@
   width: 36px;
   height: 36px;
   border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  background: var(--accent-blue);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,17 +44,11 @@
 .header-title {
   font-size: 1.3rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #e8eaed, #9aa0b0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
 }
 
 [data-theme="light"] .header-title {
-  background: linear-gradient(135deg, #1a1d26, #4b5563);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
 }
 
 .header-subtitle {
@@ -124,11 +118,11 @@
 }
 
 .toggle-track.dark {
-  background: linear-gradient(135deg, #1e3a5f, #4b5563);
+  background: #1e3a5f;
 }
 
 .toggle-track.light {
-  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  background: #f59e0b;
 }
 
 .toggle-thumb {

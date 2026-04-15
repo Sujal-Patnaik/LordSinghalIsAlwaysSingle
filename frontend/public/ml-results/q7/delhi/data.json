@@ -1,65 +1,65 @@
 {
   "city": "Delhi",
   "metric": "PM2.5",
-  "model_used": "LSTM",
+  "model_used": "Holt-Winters",
   "forecast_days": 365,
   "forecast_summary": {
-    "avg": 210.4,
-    "min": 73.8,
-    "max": 224.2
+    "avg": 80.4,
+    "min": 8.4,
+    "max": 257.4
   },
   "forecast_monthly": [
     {
       "month": "Mar 2026",
-      "predicted_avg": 77.1
+      "predicted_avg": 56.2
     },
     {
       "month": "Apr 2026",
-      "predicted_avg": 118.3
+      "predicted_avg": 64.6
     },
     {
       "month": "May 2026",
-      "predicted_avg": 187.5
+      "predicted_avg": 60.4
     },
     {
       "month": "Jun 2026",
-      "predicted_avg": 216.7
+      "predicted_avg": 36.5
     },
     {
       "month": "Jul 2026",
-      "predicted_avg": 222.9
+      "predicted_avg": 19.9
     },
     {
       "month": "Aug 2026",
-      "predicted_avg": 224.0
+      "predicted_avg": 16.7
     },
     {
       "month": "Sep 2026",
-      "predicted_avg": 224.1
+      "predicted_avg": 22.8
     },
     {
       "month": "Oct 2026",
-      "predicted_avg": 224.2
+      "predicted_avg": 69.0
     },
     {
       "month": "Nov 2026",
-      "predicted_avg": 224.2
+      "predicted_avg": 175.9
     },
     {
       "month": "Dec 2026",
-      "predicted_avg": 224.2
+      "predicted_avg": 167.6
     },
     {
       "month": "Jan 2027",
-      "predicted_avg": 224.2
+      "predicted_avg": 173.6
     },
     {
       "month": "Feb 2027",
-      "predicted_avg": 224.2
+      "predicted_avg": 101.2
     },
     {
       "month": "Mar 2027",
-      "predicted_avg": 224.2
+      "predicted_avg": 58.0
     }
   ]
 }

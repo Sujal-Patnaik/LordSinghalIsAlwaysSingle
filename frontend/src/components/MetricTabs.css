@@ -29,7 +29,7 @@
 }
 
 .metric-tab.active {
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  background: var(--accent-blue);
   color: white;
   border-color: transparent;
   font-weight: 600;

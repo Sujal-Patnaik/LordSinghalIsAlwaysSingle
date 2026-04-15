@@ -1,65 +1,65 @@
 {
   "city": "Bangalore",
   "metric": "AQI",
-  "model_used": "LSTM",
+  "model_used": "Holt-Winters",
   "forecast_days": 365,
   "forecast_summary": {
-    "avg": 101.1,
-    "min": 98.5,
-    "max": 140.2
+    "avg": 118.6,
+    "min": 77.2,
+    "max": 163.2
   },
   "forecast_monthly": [
     {
       "month": "Mar 2026",
-      "predicted_avg": 133.5
+      "predicted_avg": 143.9
     },
     {
       "month": "Apr 2026",
-      "predicted_avg": 114.9
+      "predicted_avg": 133.8
     },
     {
       "month": "May 2026",
-      "predicted_avg": 105.0
+      "predicted_avg": 110.1
     },
     {
       "month": "Jun 2026",
-      "predicted_avg": 101.2
+      "predicted_avg": 91.1
     },
     {
       "month": "Jul 2026",
-      "predicted_avg": 99.6
+      "predicted_avg": 92.9
     },
     {
       "month": "Aug 2026",
-      "predicted_avg": 99.0
+      "predicted_avg": 100.6
     },
     {
       "month": "Sep 2026",
-      "predicted_avg": 98.7
+      "predicted_avg": 103.5
     },
     {
       "month": "Oct 2026",
-      "predicted_avg": 98.6
+      "predicted_avg": 110.9
     },
     {
       "month": "Nov 2026",
-      "predicted_avg": 98.5
+      "predicted_avg": 119.6
     },
     {
       "month": "Dec 2026",
-      "predicted_avg": 98.5
+      "predicted_avg": 128.7
     },
     {
       "month": "Jan 2027",
-      "predicted_avg": 98.5
+      "predicted_avg": 147.9
     },
     {
       "month": "Feb 2027",
-      "predicted_avg": 98.5
+      "predicted_avg": 140.2
     },
     {
       "month": "Mar 2027",
-      "predicted_avg": 98.5
+      "predicted_avg": 145.3
     }
   ]
 }

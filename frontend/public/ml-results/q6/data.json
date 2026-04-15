@@ -5,9 +5,9 @@
   "cities_forecasted": [
     "Bangalore",
     "Kolkata",
-    "Chandigarh",
     "Chennai",
-    "Delhi"
+    "Delhi",
+    "Guwahati"
   ],
   "forecast_period": "365 days"
 }
