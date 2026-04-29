@@ -23,7 +23,13 @@ This project aims to develop a web portal for exploring historical Air Quality I
 2. **Research Query Engine:** A built-in query system that pairs 30 complex analytical queries from a MariaDB database alongside pre-computed Machine Learning insights and data forecasts.
 
 ---
+##  Dataset Generation
 
+The data for this project has been fetched from the aqi.in website and the OpenAQ website using. First the data for all the cities was fetched from aqi.in and then the NULL values were filled using the data from the OpenAQ website. The data fetched for this project has been placed in the csv folder inside the data folder. All the data for individual cities have been placed inside teh individual_csv subfolder of the csv folder and the entire final dataset built using the data_handling.py has been saved in the final_merged_aqi_data.csv inside the merged subfolder of the csv folder. These data are already available and if it is needed to fetch the data again, the process is explained below:
+For the datahanlding part:
+  * Login into the OpenAQ website 
+  * Generate an API key from there
+  * Copy and paste the API key inplace of "YOUR_API_KEY" in 7th line of data_handling.py
 ## 🧩 2. System Architecture
 
 ### Frontend (React + Vite)
