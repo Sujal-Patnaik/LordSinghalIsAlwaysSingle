@@ -12,8 +12,6 @@
 * Sudipto Ghosh (240150042) - SQL Queries and Data Collection
 * Sujal Patnaik (240150041) - SQL Queries and Database Management
 
-**Date:** 19 March 2026
-
 ---
 
 ## 📌 1. Introduction
