@@ -17,27 +17,35 @@ INSERT INTO cities (city_name, state, region) VALUES
 ('Noida', 'Uttar Pradesh', 'North'),
 ('Guwahati', 'Assam', 'Northeast');
 
+-- Create a temporary staging table
+CREATE TEMPORARY TABLE aqi_data_staging (
+    city_name VARCHAR(50),
+    date DATE,
+    co FLOAT,
+    no2 FLOAT,
+    o3 FLOAT,
+    pm10 FLOAT,
+    pm25 FLOAT,
+    aqi_daily FLOAT
+);
+
 LOAD DATA LOCAL INFILE 'data/csv/merged/final_merged_aqi_data.csv'
-INTO TABLE aqi_data
+INTO TABLE aqi_data_staging
 FIELDS TERMINATED BY ','
 IGNORE 1 ROWS
 (city_name, date, co, no2, o3, pm10, pm25, aqi_daily, @aqi_monthly);
 
-UPDATE aqi_data a
-JOIN cities c
-ON LOWER(TRIM(a.city_name)) = LOWER(TRIM(c.city_name))
-SET a.city_id = c.city_id;
+INSERT INTO aqi_data (city_id, date, co, no2, o3, pm10, pm25, aqi_daily)
+SELECT 
+    c.city_id, 
+    s.date, 
+    s.co, 
+    s.no2, 
+    s.o3, 
+    s.pm10, 
+    s.pm25, 
+    s.aqi_daily
+FROM aqi_data_staging s
+JOIN cities c ON LOWER(TRIM(s.city_name)) = LOWER(TRIM(c.city_name));
 
-ALTER TABLE aqi_data DROP COLUMN city_name;
-ALTER TABLE aqi_data MODIFY id INT;  -- remove AUTO_INCREMENT
-ALTER TABLE aqi_data DROP PRIMARY KEY;
-
-ALTER TABLE aqi_data DROP COLUMN id;
-ALTER TABLE aqi_data
-ADD PRIMARY KEY (city_id, date);
-
-ALTER TABLE aqi_data
-ADD CONSTRAINT fk_city
-FOREIGN KEY (city_id) REFERENCES cities(city_id);
-
-CREATE INDEX idx_city_date ON aqi_data(city_id, date);
+DROP TEMPORARY TABLE aqi_data_staging;
