@@ -19,6 +19,7 @@
 This project aims to develop a web portal for exploring historical Air Quality Index (AQI) and pollution data across major Indian cities (2021–2026). The platform features:
 1. **Interactive Dashboard View:** To visualize trends, analyze daily/monthly pollution levels, and compare air quality across cities instantly.
 2. **Research Query Engine:** A built-in query system that pairs 30 complex analytical queries from a MariaDB database alongside pre-computed Machine Learning insights and data forecasts.
+3. **AirPulse AI Assistant:** A Groq-powered chatbot (LLaMA 3.3 70B) embedded in the dashboard that answers user queries about AQI trends, pollution causes, weather impacts, and health advisories. The bot is scoped strictly to weather and air-quality topics.
 
 ---
 
@@ -76,6 +77,7 @@ To fill NULL values in the collected data using the OpenAQ API:
 * Provides API handler loops.
 * Resolves dynamic SQL parameter injections seamlessly.
 * Handles MariaDB `BigInt` responses to safely serialize aggregative statistical models (`COUNT()`, `PERCENTILE_CONT()`).
+* Exposes a `/api/chat` endpoint that proxies user messages to the **Groq API** with a system prompt restricting responses to AQI, weather, and pollution topics only.
 
 ### Database (MariaDB)
 * Relational structure linking Cities and Daily AQI entries natively.
@@ -123,7 +125,9 @@ Follow these steps exactly in order to launch the full system locally.
    DB_PASSWORD=admin
    DB_NAME=aqi_db
    PORT=4000
+   GROQ_API_KEY=your_groq_api_key_here
    ```
+   > **Groq API Key:** Sign up at [console.groq.com](https://console.groq.com), navigate to **API Keys → Create API Key**, and paste the key above. This powers the AirPulse AI Assistant chatbot.
 3. Install dependencies and start the server:
    ```bash
    npm install
