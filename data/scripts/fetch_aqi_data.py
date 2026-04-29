@@ -6,7 +6,7 @@ import argparse
 from collections import defaultdict
 
 # API configuration
-API_URL = "YOUR_API_KEY"
+API_URL = "https://apiserver.aqi.in/aqi/v2/getAqiCalender"
 
 HEADERS_TEMPLATE = {
     "User-Agent": "Mozilla/5.0",
