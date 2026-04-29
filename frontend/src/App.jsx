@@ -11,6 +11,7 @@ import MLInsightsPanel from "./components/MLInsightsPanel";
 import CityCompare from "./components/CityCompare";
 import AqiDistribution from "./components/AqiDistribution";
 import DeepDivePanel from "./components/DeepDivePanel";
+import ChatBot from "./components/ChatBot";
 import { fetchCities, fetchDailyAqi } from "./services/api";
 import { aggregateWeekly, aggregateMonthly } from "./utils/dataTransforms";
 import "./App.css";
@@ -358,6 +359,8 @@ export default function App() {
           <MLInsightsPanel />
         )}
       </main>
+
+      <ChatBot />
     </div>
   );
 }
