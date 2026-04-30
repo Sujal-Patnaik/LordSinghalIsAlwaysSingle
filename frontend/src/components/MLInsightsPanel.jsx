@@ -389,9 +389,26 @@ export default function MLInsightsPanel() {
     // Fetch ML JSON data
     setIsMlLoading(true);
     try {
-      const res = await fetch(`/ml-results/q${qid}/data.json`);
-      if (res.ok) {
-        setMlData(await res.json());
+      let mlJson = null;
+
+      // Try data.json first
+      const res1 = await fetch(`/ml-results/q${qid}/data.json`);
+      const ct1 = res1.headers.get("content-type") || "";
+      if (res1.ok && ct1.includes("application/json")) {
+        mlJson = await res1.json();
+      }
+
+      // Fallback: summary.json (Q3 uses this structure)
+      if (!mlJson) {
+        const res2 = await fetch(`/ml-results/q${qid}/summary.json`);
+        const ct2 = res2.headers.get("content-type") || "";
+        if (res2.ok && ct2.includes("application/json")) {
+          mlJson = await res2.json();
+        }
+      }
+
+      if (mlJson) {
+        setMlData(mlJson);
       } else {
         setMlData({ error: "ML results not generated. Run generate_all.py." });
       }
@@ -732,6 +749,14 @@ export default function MLInsightsPanel() {
                             <strong> ML Approach:</strong> {mlData.ml_type}
                           </div>
                         )}
+                        {/* Q3 anomaly summary stats */}
+                        {mlData.cities && Array.isArray(mlData.cities) && (
+                          <div className="finding-item">
+                            <strong> Cities Analyzed:</strong>{" "}
+                            {mlData.cities.length} cities — Avg anomaly rate:{" "}
+                            {(mlData.cities.reduce((s, c) => s + c.anomaly_rate, 0) / mlData.cities.length).toFixed(2)}%
+                          </div>
+                        )}
                       </div>
 
                       {/* Sub-city forecasts for Q6/Q7 */}
@@ -746,6 +771,31 @@ export default function MLInsightsPanel() {
                                   <img
                                     src={`/ml-results/q${selectedQuery}/${city.replace(/ /g, "_").toLowerCase()}/plot.png`}
                                     alt={`${city} forecast`}
+                                    className="sub-plot-img"
+                                    loading="lazy"
+                                    onError={(e) => {
+                                      e.target.parentElement.style.display =
+                                        "none";
+                                    }}
+                                  />
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                      {/* Q3 per-city anomaly detection plots */}
+                      {selectedQuery === 3 &&
+                        mlData.cities && Array.isArray(mlData.cities) && (
+                          <div className="ml-sub-plots">
+                            <h4> Per-City Anomaly Detection</h4>
+                            <div className="sub-plots-grid">
+                              {mlData.cities.map((c) => (
+                                <div key={c.city} className="sub-plot-card">
+                                  <h5>{c.city} <small style={{opacity:0.6}}>({c.anomalies_detected} anomalies, {c.anomaly_rate}%)</small></h5>
+                                  <img
+                                    src={`/ml-results/q3/${c.city.toLowerCase()}/plot.png`}
+                                    alt={`${c.city} anomaly detection`}
                                     className="sub-plot-img"
                                     loading="lazy"
                                     onError={(e) => {
